@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        label {
+            width: 100%;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #prediction-result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Score Predictor</h1>
+        <form id="prediction-form">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="Age"><br><br>
+            <label for="month">Month:</label>
+            <input type="text" id="month" name="Month"><br><br>
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation" name="Occupation"><br><br>
+            <label for="annual_income">Annual Income:</label>
+            <input type="text" id="annual_income" name="Annual_Income"><br><br>
+            <label for="monthly_inhand_salary">Monthly Inhand Salary:</label>
+            <input type="text" id="monthly_inhand_salary" name="Monthly_Inhand_Salary"><br><br>
+            <label for="num_bank_accounts">Num Bank Accounts:</label>
+            <input type="text" id="num_bank_accounts" name="Num_Bank_Accounts"><br><br>
+            <label for="num_credit_card">Num Credit Card:</label>
+            <input type="text" id="num_credit_card" name="Num_Credit_Card"><br><br>
+            <label for="interest_rate">Interest Rate:</label>
+            <input type="text" id="interest_rate" name="Interest_Rate"><br><br>
+            <label for="delay_from_due_date">Delay from due date:</label>
+            <input type="text" id="delay_from_due_date" name="Delay_from_due_date"><br><br>
+            <label for="num_of_delayed_payment">Num of Delayed Payment:</label>
+            <input type="text" id="num_of_delayed_payment" name="Num_of_Delayed_Payment"><br><br>
+            <label for="changed_credit_limit">Changed Credit Limit:</label>
+            <input type="text" id="changed_credit_limit" name="Changed_Credit_Limit"><br><br>
+            <label for="num_credit_inquiries">Num Credit Inquiries:</label>
+            <input type="text" id="num_credit_inquiries" name="Num_Credit_Inquiries"><br><br>
+            <label for="credit_mix">Credit Mix:</label>
+            <input type="text" id="credit_mix" name="Credit_Mix"><br><br>
+            <label for="outstanding_debt">Outstanding Debt:</label>
+            <input type="text" id="outstanding_debt" name="Outstanding_Debt"><br><br>
+            <label for="credit_utilization_ratio">Credit Utilization Ratio:</label>
+            <input type="text" id="credit_utilization_ratio" name="Credit_Utilization_Ratio"><br><br>
+            <label for="credit_history_age">Credit History Age:</label>
+            <input type="text" id="credit_history_age" name="Credit_History_Age"><br><br>
+            <label for="payment_of_min_amount">Payment of Min Amount:</label>
+            <input type="text" id="payment_of_min_amount" name="Payment_of_Min_Amount"><br><br>
+            <label for="total_emi_per_month">Total EMI per month:</label>
+            <input type="text" id="total_emi_per_month" name="Total_EMI_per_month"><br><br>
+            <label for="amount_invested_monthly">Amount invested monthly:</label>
+            <input type="text" id="amount_invested_monthly" name="Amount_invested_monthly"><br><br>
+            <label for="payment_behaviour">Payment Behaviour:</label>
+            <input type="text" id="payment_behaviour" name="Payment_Behaviour"><br><br>
+            <label for="monthly_balance">Monthly Balance:</label>
+            <input type="text" id="monthly_balance" name="Monthly_Balance"><br><br>
+            <label for="count_auto_loan">Count Auto Loan:</label>
+            <input type="text" id="count_auto_loan" name="Count_Auto Loan"><br><br>
+            <label for="count_credit_builder_loan">Count Credit-Builder Loan:</label>
+            <input type="text" id="count_credit_builder_loan" name="Count_Credit-Builder Loan"><br><br>
+            <label for="count_credit_builder_loan">Count Debt Consolidation Loan:</label>
+            <input type="text" id="count_debt_consolidation_loan" name="Count_Debt Consolidation Loan"><br><br>
+            <label for="count_personal_loan">Count Personal Loan:</label>
+            <input type="text" id="count_personal_loan" name="Count_Personal Loan"><br><br>
+            <label for="count_home_equity_loan">Count Home Equity Loan:</label>
+            <input type="text" id="count_home_equity_loan" name="Count_Home Equity Loan"><br><br>
+            <label for="count_not_specified">Count Not Specified:</label>
+            <input type="text" id="count_not_specified" name="Count_Not Specified"><br><br>
+            <label for="count_mortgage_loan">Count Mortgage Loan:</label>
+            <input type="text" id="count_mortgage_loan" name="Count_Mortgage Loan"><br><br>
+            <label for="count_student_loan">Count Student Loan:</label>
+            <input type="text" id="count_student_loan" name="Count_Student Loan"><br><br>
+            <label for="count_debt_consolidation_loan">Count Debt Consolidation Loan:</label>
+            <input type="text" id="count_debt_consolidation_loan" name="Count_Debt Consolidation Loan"><br><br>
+            <label for="count_payday_loan">Count Payday Loan:</label>
+            <input type="text" id="count_payday_loan" name="Count_Payday Loan"><br><br>
+            <input type="submit" value="Predict">
+        </form>
+        <p id="prediction-result"></p>
+    </div>
+    <script>
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            fetch('http://127.0.0.1:8000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("prediction-result").innerText = `Predicted Credit Score: ${data.prediction}`;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
